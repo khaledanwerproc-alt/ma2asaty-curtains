@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#101b35">
+<title>مقاساتي | تسجيل المقاسات بالصوت — إصدار محسّن</title>
+<style>
+:root{--bg:#f4f7fb;--ink:#17233b;--sub:#627188;--line:#dde5f0;--navy:#122143;--teal:#087f81;--teal2:#0ca9a4;--pale:#e8f8f5;--orange:#ed9a36;--white:#fff;--red:#c53e50;--shadow:0 12px 32px rgba(20,37,69,.075)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Tahoma,"Segoe UI",Arial,sans-serif;font-size:15px;line-height:1.65}
+button,input,textarea{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #76d3ce;outline-offset:2px}
+header{background:linear-gradient(115deg,#101e3c 0%,#183459 57%,#096567 115%);color:#fff;padding:25px max(18px,calc((100vw - 1120px)/2)) 86px;position:relative;overflow:hidden}
+header:after{content:"";position:absolute;inset:auto -10% -130px -10%;height:165px;background:radial-gradient(ellipse at 70% 30%,rgba(65,214,192,.22),transparent 65%);pointer-events:none}
+.header-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}.brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:20px}.logo{width:44px;height:44px;background:#fff2;display:grid;place-items:center;border:1px solid #fff3;border-radius:13px}.logo svg{width:25px;height:25px}
+.tag{padding:5px 12px;border:1px solid #ffffff4b;background:#ffffff14;border-radius:30px;font-size:12px;color:#e3f7f6}
+.hero{margin-top:25px}.hero h1{font-size:clamp(27px,4vw,38px);line-height:1.4;margin:0 0 7px}.hero p{margin:0;color:#d0e5f0;max-width:620px}
+.shell{width:min(1120px,calc(100% - 32px));margin:-59px auto 45px;position:relative;z-index:1}.cols{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:18px;align-items:start}
+.panel{background:var(--white);border:1px solid #e6eaf0;border-radius:19px;box-shadow:var(--shadow);overflow:hidden}.pad{padding:22px}.panel-title{font-size:19px;font-weight:800;margin:0}.lead{font-size:13px;color:var(--sub);margin:3px 0 0}.topline{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.voicebox{background:linear-gradient(135deg,#eafbfa,#f0f7ff);border:1px solid #cfeae9;border-radius:17px;padding:18px;margin-bottom:18px}.hint{color:#386269;font-size:13px;margin:0 0 13px}.example{font-size:13px;color:#2f5f62;background:#ffffffa8;border:1px dashed #bcd7d5;border-radius:12px;padding:10px 13px;margin:0 0 14px}.example strong{color:#184448}.microw{display:flex;gap:11px;align-items:center;flex-wrap:wrap}
+.btn{border:0;border-radius:12px;padding:11px 17px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:46px;transition:transform .12s,background .12s}.btn:active{transform:scale(.985)}.btn svg{width:18px;height:18px;flex:none}.btn-mic{background:var(--teal);color:white;flex:1;min-width:175px;font-size:16px;box-shadow:0 6px 16px #087f8129}.btn-mic.listening{background:#bb3a4e;animation:throb 1.7s infinite}.btn-outline{background:white;border:1px solid #b7d3d4;color:#176166}.btn-primary{background:var(--navy);color:#fff}.btn-light{background:#eef2f7;color:#34455c}.btn-danger{background:#fff1f1;color:var(--red)}.btn-sm{min-height:36px;font-size:12px;padding:6px 12px;border-radius:9px}.btn:disabled{opacity:.55;cursor:not-allowed}
+@keyframes throb{50%{box-shadow:0 0 0 8px #bb3a4e21}}.status{display:flex;align-items:center;gap:7px;font-size:12px;color:#587176;margin-top:12px}.dot{height:9px;width:9px;background:#8b9b9f;border-radius:50%;flex:none}.status.active .dot{background:#e45264;box-shadow:0 0 0 5px #e4526420}.status.good .dot{background:#16a08a}.status.bad .dot{background:#c54254}.transcript{border-top:1px solid #d7eae8;margin-top:14px;padding-top:12px;font-size:13px}.transcript span{color:#547478}.transcript p{margin:3px 0 0;min-height:20px;color:#223e48;font-weight:700;overflow-wrap:anywhere}.text-entry summary{color:#265b6c;font-weight:700;cursor:pointer;font-size:12px;margin-top:12px}.manualspeech{margin-top:10px;display:flex;gap:8px;align-items:flex-start}.manualspeech textarea{flex:1;min-width:0;min-height:54px;resize:vertical;border:1px solid #bbd9da;border-radius:10px;padding:9px 11px;background:#fff;line-height:1.5}.manualspeech .btn{min-height:54px;white-space:nowrap}
+.inputgrid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.field{display:flex;flex-direction:column;gap:5px}.field label{font-weight:750;font-size:13px}.field .help{font-size:11px;color:#7a8699}.field input{width:100%;min-width:0;height:46px;background:#fbfdff;border:1px solid #d8e1ea;border-radius:11px;padding:9px 12px;color:#17233b}.field input::placeholder{color:#a1adbb}.field.full{grid-column:1/-1}
+.math{margin:19px 0;border:1px solid #c6e8e3;background:#effbf8;border-radius:14px;padding:14px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}.math .formula{font-size:12px;color:#347069}.math .result{font-size:30px;font-weight:900;color:#006f73;line-height:1.2;direction:ltr;unicode-bidi:embed}.math .result small{font-size:14px;font-weight:800}
+.form-actions{display:flex;gap:9px;flex-wrap:wrap}.form-actions .btn-primary{flex:1;min-width:170px}
+.aside-stack{display:grid;gap:18px}.stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}.stat{background:#f4f8fc;border-radius:12px;padding:14px}.stat b{font-size:25px;line-height:1.5;display:block;font-variant-numeric:tabular-nums;color:#133a60}.stat span{color:#697b91;font-size:12px}.stat:first-child{background:#e6f7f2}.stat:first-child b{color:#00786e}
+.meta-fields{display:grid;gap:12px}.notes{background:#f8f9fd;border:1px solid #e8ecf2;border-radius:12px;padding:13px;font-size:12px;color:#5b697d}.notes b{color:#253f59}.notes ul{padding-right:19px;margin:8px 0 0}
+.listpanel{margin-top:18px}.listheader{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}.list-actions{display:flex;gap:8px;flex-wrap:wrap}.tablewrap{overflow-x:auto;margin-top:18px;border:1px solid #e5ebf1;border-radius:13px}table{border-collapse:collapse;width:100%;min-width:720px;font-size:13px;text-align:right}th{background:#f5f8fc;color:#4b6078;font-weight:800;padding:13px 11px;white-space:nowrap}td{border-top:1px solid #eaf0f5;padding:12px 11px;vertical-align:middle}td.num{font-variant-numeric:tabular-nums;direction:ltr;text-align:right}td strong{color:#087979}td .act{border:0;background:#eff3f8;color:#465b70;padding:7px 9px;border-radius:7px;font-size:12px;margin-inline-start:4px}td .act.remove{color:#bc3746;background:#fff0f1}.empty{padding:35px 18px;text-align:center;color:#8494a6}.empty .circle{height:50px;width:50px;margin:0 auto 12px;background:#edf5f6;border-radius:50%;display:grid;place-items:center;font-size:22px}.empty b{color:#41556c;display:block}tfoot td{background:#eef8f7;font-weight:800}
+.footer{font-size:12px;color:#708198;text-align:center;margin:22px auto 0}.toast{position:fixed;inset:auto 50% 24px auto;transform:translateX(50%) translateY(120px);background:#1d304a;color:#fff;border-radius:12px;padding:11px 20px;box-shadow:0 10px 25px #17233b30;z-index:100;transition:transform .24s;max-width:90%;text-align:center;font-size:13px}.toast.show{transform:translateX(50%) translateY(0)}
+@media(max-width:850px){.cols{grid-template-columns:1fr}.aside-stack{grid-template-columns:1fr 1fr}.aside-stack .meta-panel{grid-column:1/-1}.shell{margin-top:-60px}}
+@media(max-width:560px){header{padding:17px 16px 86px}.brand{font-size:18px}.hero{margin-top:22px}.hero h1{font-size:26px}.shell{width:calc(100% - 22px)}.pad{padding:16px}.inputgrid{gap:11px}.field input{height:48px}.aside-stack{grid-template-columns:1fr}.aside-stack .meta-panel{grid-column:auto}.listheader{align-items:stretch}.list-actions{width:100%}.list-actions .btn{flex:1}.microw .btn-outline{flex:0 0 auto}.manualspeech{flex-direction:column}.manualspeech textarea,.manualspeech .btn{width:100%}.stat b{font-size:23px}}
+@media print{body{background:#fff}header{background:#fff!important;color:#000;padding:0 0 20px}.hero p,.tag,.voicebox,.form-actions,.inputgrid,.math,.notes,.list-actions,.footer,.meta-panel,.toast{display:none!important}.hero{margin-top:12px}.shell{width:100%;margin:0}.cols{display:none}.panel{box-shadow:none;border:0}.listpanel{margin:0}.pad{padding:0}.tablewrap{overflow:visible;border:0}table{min-width:0}th,td{padding:8px 5px;font-size:11px}td .act{display:none}.print-only{display:block!important}}
+
+.assist-row{display:flex;gap:9px;flex-wrap:wrap;margin-top:9px}
+.assist-row .btn{flex:1;font-size:12px;min-height:40px}
+.context-note{font-size:12px;line-height:1.6;margin-top:10px;padding:10px 12px;background:#fff7e9;border:1px solid #f2d5a2;color:#764d1d;border-radius:11px;display:none}
+.context-note.visible{display:block}
+.context-note.good{background:#e8f7f1;color:#176e57;border-color:#bce7d7}
+.versionline{font-size:11px;color:#5c7c86;margin-top:5px}
+.print-only{display:none}
+</style>
+</head>
+<body>
+<header>
+  <div class="header-top"><div class="brand"><div class="logo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h18M5 4v16l3-3 4 3 4-3 3 3V4M12 4v16"/></svg></div>مقاساتي <span style="font-size:12px;font-weight:400;color:#a5d6da">للستائر</span></div><div class="tag">تسجيل بالصوت • حساب تلقائي</div></div>
+  <div class="hero"><h1>من صوت الفني... لجدول المقاسات</h1><p>انطق العرض والارتفاع والعدد والمكان، والبرنامج يسجّلهم ويحسِب إجمالي الأمتار المربعة.</p></div>
+</header>
+<main class="shell">
+<div class="cols">
+<section class="panel"><div class="pad">
+  <div class="topline"><div><h2 class="panel-title" id="formTitle">مقاس جديد</h2><p class="lead">ممكن تقول المقاس كله مرة واحدة، أو كل جزء لوحده.</p></div><span class="tag" style="color:#407f79;background:#e5f7f2;border-color:#d1eee8">اللغة العربية – مصر</span></div>
+  <div class="voicebox">
+    <div class="example"><strong>جرّب تقول:</strong> «المكان ريسبشن، العرض ٢ متر ونص، الارتفاع ٢ متر و٧٠، العدد ٣»</div>
+    <div class="microw"><button type="button" class="btn btn-mic" id="micBtn" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="2" width="6" height="13" rx="3"/><path d="M5 10a7 7 0 0014 0M12 17v5m-4 0h8"/></svg><span id="micText">ابدأ التسجيل بالصوت</span></button><button type="button" class="btn btn-outline" id="sampleBtn">جرّب مثال</button></div>
+    <div class="assist-row"><button type="button" class="btn btn-outline btn-sm" id="micTestBtn">اختبر صلاحية الميكروفون</button><button type="button" class="btn btn-outline btn-sm" id="dictateBtn">بديل: إملاء من كيبورد الموبايل</button></div>
+    <div id="contextNote" class="context-note" role="note"></div>
+    <div class="status" id="voiceStatus" role="status" aria-live="polite"><span class="dot"></span><span id="statusText">اضغط على الميكروفون واسمح بالوصول إليه.</span></div>
+    <div class="transcript"><span>آخر كلام اتسمع:</span><p id="lastSpeech">لسه ما اتسجلش كلام</p></div>
+    <details class="text-entry" id="dictationDetails"><summary>استخدام الإملاء الصوتي أو كتابة الكلام هنا</summary><div class="manualspeech"><textarea id="speechInput" lang="ar" dir="auto" enterkeyhint="done" placeholder="اضغط في الخانة، ومن كيبورد الموبايل اختار علامة الميكروفون واتكلم. بعدها اضغط حلّل الكلام."></textarea><button type="button" class="btn btn-outline" id="parseBtn">حلّل الكلام</button></div></details>
+  </div>
+  <div class="inputgrid">
+    <div class="field full"><label for="place">المكان / الغرفة</label><input id="place" type="text" autocomplete="off" placeholder="مثلاً: غرفة النوم الرئيسية"></div>
+    <div class="field"><label for="width">العرض (سم)</label><input id="width" type="number" inputmode="decimal" min="0.1" step="any" placeholder="250"><span class="help" id="widthMeters">0.00 متر</span></div>
+    <div class="field"><label for="height">الارتفاع (سم)</label><input id="height" type="number" inputmode="decimal" min="0.1" step="any" placeholder="270"><span class="help" id="heightMeters">0.00 متر</span></div>
+    <div class="field"><label for="qty">العدد</label><input id="qty" type="number" min="1" step="1" inputmode="numeric" value="1"><span class="help">عدد قطع الستائر بنفس المقاس</span></div>
+    <div class="field"><label>طريقة الحساب</label><div style="border:1px solid #e2e9f0;border-radius:10px;background:#f7f9fb;min-height:46px;display:flex;align-items:center;padding:0 11px;font-size:12px;color:#65768b">العرض × الارتفاع × العدد</div></div>
+  </div>
+  <div class="math"><div><b style="display:block">المساحة الإجمالية للمقاس</b><div id="formula" class="formula">0.00 × 0.00 × 1</div></div><div id="result" class="result">0.00 <small>م²</small></div></div>
+  <div class="form-actions"><button type="button" class="btn btn-primary" id="saveBtn">＋ حفظ المقاس في الجدول</button><button type="button" class="btn btn-light" id="resetBtn">تفريغ الخانات</button></div>
+</div></section>
+<aside class="aside-stack">
+  <section class="panel"><div class="pad"><h2 class="panel-title">ملخص الشغل</h2><p class="lead" style="margin-bottom:15px">الإجمالي بيتحدث مع كل مقاس محفوظ.</p><div class="stat-grid"><div class="stat"><b id="sumArea">0.00</b><span>إجمالي المساحة (م²)</span></div><div class="stat"><b id="sumCount">0</b><span>عدد قطع الستائر</span></div><div class="stat"><b id="sumLines">0</b><span>المقاسات المسجلة</span></div><div class="stat"><b id="sumPlaces">0</b><span>الأماكن المختلفة</span></div></div></div></section>
+  <section class="panel meta-panel"><div class="pad"><h2 class="panel-title">بيانات المعاينة</h2><p class="lead" style="margin-bottom:15px">اختياري، هتظهر في ملف التصدير.</p><div class="meta-fields"><div class="field"><label for="project">اسم العميل / المشروع</label><input id="project" type="text" placeholder="مثلاً: شقة أ. أحمد"></div><div class="field"><label for="technician">اسم الفني</label><input id="technician" type="text" placeholder="اسم الفني اللي رفع المقاسات"></div></div></div></section>
+  <section class="panel"><div class="pad"><h2 class="panel-title">تعليمات سريعة</h2><div class="notes"><b>المقاس ممكن يتقال بطريقتين:</b><ul><li>«العرض 250، الارتفاع 270» — هيتفهم <b>سنتيمتر</b>.</li><li>«العرض مترين ونص، الارتفاع مترين وسبعين» — هيتحول تلقائيًا لسم.</li><li>«العدد اتنين، المكان الصالة» — تتعبّى الخانات.</li></ul><p style="margin:9px 0 0">راجع الأرقام قبل الحفظ. القياسات محفوظة على <b>نفس الجهاز والمتصفح</b> فقط. خدمة التعرف على الصوت قد تحتاج إنترنت.</p></div></div></section>
+</aside>
+</div>
+<section class="panel listpanel" id="recordsSection"><div class="pad">
+ <div class="listheader"><div><h2 class="panel-title">جدول المقاسات</h2><p class="lead">كل المقاسات المحفوظة، مع إمكانية التعديل والحذف والتصدير.</p></div><div class="list-actions"><button type="button" class="btn btn-outline btn-sm" id="exportBtn">⬇ تصدير Excel (CSV)</button><button type="button" class="btn btn-light btn-sm" id="printBtn">طباعة</button><button type="button" class="btn btn-danger btn-sm" id="clearAllBtn">حذف الكل</button></div></div>
+ <div class="print-only" id="printMeta"></div>
+ <div id="recordsView"><div class="empty"><div class="circle">▤</div><b>لسه مفيش مقاسات محفوظة</b>ابدأ بتسجيل أول مقاس بالصوت.</div></div>
+</div></section>
+<div class="footer">مقاساتي • نسخة محسّنة 2.0 • بياناتك محفوظة على الجهاز فقط • المساحة = (العرض بالسم ÷ 100) × (الارتفاع بالسم ÷ 100) × العدد</div>
+</main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(()=>{'use strict';
+const $=id=>document.getElementById(id);
+const storageKey='curtain_voice_measurements_v1';
+const metaKey='curtain_voice_measurements_meta_v1';
+const f={place:$('place'),width:$('width'),height:$('height'),qty:$('qty')};
+let records=[],editId=null,listening=false,recognition=null,toastTimeout;
+const fmt=n=>Number(n||0).toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+const rounded=n=>Math.round((n+Number.EPSILON)*100)/100;
+function normalize(s){return String(s||'').toLowerCase().replace(/[٠-٩]/g,c=>String(c.charCodeAt(0)-1632)).replace(/[۰-۹]/g,c=>String(c.charCodeAt(0)-1776)).replace(/[ًٌٍَُِّْـ]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه').replace(/٫/g,'.').replace(/،/g,' ').replace(/[؛,:=!?؟]/g,' ').replace(/\s+/g,' ').trim();}
+const words={
+ 'صفر':0,'واحد':1,'واحده':1,'احد':1,'اول':1,'اتنين':2,'اثنين':2,'اثنان':2,'اثنتين':2,'اتنان':2,'تنين':2,'مترين':2,'متران':2,'تلاته':3,'ثلاثه':3,'ثلاث':3,'تلات':3,'اربعه':4,'اربعة':4,'اربع':4,'خمسه':5,'خمسة':5,'خمس':5,'سته':6,'ست':6,'سبعه':7,'سبع':7,'تمانيه':8,'ثمانيه':8,'ثمانيه':8,'تمنيه':8,'تسعه':9,'تسع':9,'عشره':10,'عشر':10,'حداشر':11,'احداشر':11,'اتناشر':12,'اثناشر':12,'تلتاشر':13,'اربعتاشر':14,'خمستاشر':15,'ستاشر':16,'سبعتاشر':17,'تمانتاشر':18,'تسعتاشر':19,
+ 'عشرين':20,'تلاتين':30,'ثلاثين':30,'اربعين':40,'خمسين':50,'ستين':60,'سبعين':70,'تمانين':80,'ثمانين':80,'تسعين':90,'ميه':100,'مية':100,'مئه':100,'مايه':100,'مائه':100,'ميتين':200,'مئتين':200,'ميتان':200,'تلتميه':300,'ثلاثميه':300,'اربعمية':400,'خمسمية':500,'نص':.5,'نصف':.5,'ربع':.25,'تلت':1/3,'ثلث':1/3
+};
+const numeralWords=Object.keys(words).sort((a,b)=>b.length-a.length);
+function tokensForNumbers(text){
+ let s=normalize(text).replace(/(^|\s)و(نص|نصف|ربع|تلت|ثلث|سبعين|خمسين|عشرين|تلاتين|ثلاثين|اربعين|ستين|ثمانين|تمانين|تسعين|ميتين|ميه|مية|مئه|[0-9]+)/g,'$1و $2');
+ const items=[];const wordRe=new RegExp('^(?:'+numeralWords.join('|')+')$');
+ for(const raw of s.split(/\s+/)){
+   if(/^\d+(?:\.\d+)?$/.test(raw)){items.push({num:parseFloat(raw),raw,numeric:true});continue;}
+   let t=raw;
+   if(!wordRe.test(t)&&t.startsWith('و')&&wordRe.test(t.slice(1)))t=t.slice(1);
+   if(Object.prototype.hasOwnProperty.call(words,t))items.push({num:words[t],raw:t,numeric:false});
+ }
+ return items;
+}
+function amount(text,mode='default'){
+ const a=tokensForNumbers(text);if(!a.length)return null;
+ const x=a[0].num; if(a.length===1)return x;
+ const y=a[1].num;
+ if(x>=100&&y<100)return x+y;
+ if(y>0&&y<1)return x+y;
+ if(x>=1&&x<=15&&y>=10&&y<100){
+  if(mode==='meterTail')return x+y/100;
+  if(!a[0].numeric&&!a[1].numeric)return x+y; // «خمسة وسبعين» = 75
+  return x+y/100; // «2 و70» = 2.70 meters
+ }
+ if(x>=20&&x<100&&y>0&&y<10)return x+y;
+ if(x<10&&y>0&&y<10)return x+y/10;
+ return x;
+}
+function parseDimension(text){
+ let s=normalize(text).replace(/(سنتمتر|سنتيمتر|سنتيميتر|سنتي متر|سنتي|سم)/g,' سم ').replace(/\s+/g,' ');
+ if(!s)return null;
+ const meter=/(?:^|\s)(مترين|متران|متر|مترات|امتار)(?=\s|$)/.exec(s);
+ const cm=/(?:^|\s)سم(?=\s|$)/.test(s);
+ let n;
+ if(meter){
+   const before=s.slice(0,meter.index),after=s.slice(meter.index+meter[0].length);
+   const base=amount(before);
+   let meters=base!==null?base:(meter[1]==='مترين'||meter[1]==='متران'?2:1);
+   const tail=amount(after,'meterTail');
+   if(tail!==null){
+     if(tail<1)meters+=tail;
+     else if(tail>=10)meters+=tail/100;
+     else if(/(?:^|\s)سم(?=\s|$)/.test(after))meters+=tail/100;
+     else meters+=tail/10;
+   }
+   n=meters*100;
+ }else{
+   const val=amount(s);
+   if(val===null)return null;
+   // If phrase says 2 و70, it represents 2.70 m; otherwise 250 is cm, 2.5 is m.
+   const ts=tokensForNumbers(s);
+   const colloquialMeter=ts.length>1&&ts[0].numeric&&ts[0].num<=15&&ts[1].num>=10&&ts[1].num<100;
+   if(cm)n=val;
+   else if(colloquialMeter)n=val*100;
+   else n=(val<=8?val*100:val);
+ }
+ if(!Number.isFinite(n)||n<=0||n>100000)return null;
+ return Math.round(n*100)/100;
+}
+function parseCount(text){const n=amount(text);return n!==null&&Number.isInteger(n)&&n>0&&n<=10000?n:null;}
+const labelRe=/(?:^|[\s،,؛:])((?:ال)?(?:عرض|ارتفاع|طول|عدد|كميه|مكان))(?=$|[\s،,؛:])/g;
+function labelType(label){if(/عرض/.test(label))return 'width';if(/ارتفاع|طول/.test(label))return 'height';if(/عدد|كميه/.test(label))return 'qty';return 'place';}
+function parseVoice(phrase){
+ const s=normalize(phrase);const matches=[];let m;labelRe.lastIndex=0;
+ while((m=labelRe.exec(s))!==null){const idx=m.index+m[0].indexOf(m[1]);matches.push({start:idx,end:idx+m[1].length,type:labelType(m[1])});}
+ const res={};
+ for(let i=0;i<matches.length;i++){
+  const item=matches[i], next=matches[i+1];
+  let value=s.slice(item.end,next?next.start:s.length).trim().replace(/^(?:هو|هي|يساوي|قدره|تقريبا|في|بـ)\s+/,'').trim();
+  if(item.type==='place'){value=value.split(/\s+مقاس(?:ات)?\s+/)[0].trim();if(value)res.place=value;}
+  if(item.type==='width'){const d=parseDimension(value);if(d!==null)res.width=d;}
+  if(item.type==='height'){const d=parseDimension(value);if(d!==null)res.height=d;}
+  if(item.type==='qty'){const d=parseCount(value);if(d!==null)res.qty=d;}
+ }
+ // Fallback for «250 في 270» / «250 × 270» with no width or height labels.
+ if(res.width===undefined&&res.height===undefined){
+   const pair=/([\d٠-٩۰-۹]+(?:[.٫][\d٠-٩۰-۹]+)?)\s*(?:في|×|x|\*)\s*([\d٠-٩۰-۹]+(?:[.٫][\d٠-٩۰-۹]+)?)/i.exec(phrase);
+   if(pair){res.width=parseDimension(pair[1]);res.height=parseDimension(pair[2]);}
+ }
+ if(!res.place){
+   const room=/(?:^|\s)((?:(?:ال)?غرفه|(?:ال)?اوضه)\s+[\u0621-\u064a\s]+?)(?=\s+(?:(?:ال)?عرض|(?:ال)?ارتفاع|(?:ال)?طول|(?:ال)?عدد|(?:ال)?كميه)|$)/.exec(s);
+   if(room)res.place=room[1].trim();
+   else{
+     const known=/(?:^|\s)(?:في|ب)\s+(الصاله|صاله|الريسبشن|ريسبشن|النوم|المطبخ|السفره|سفره|المكتب|الاطفال|البلكونه|الصالون)(?=\s|$)/.exec(s);
+     if(known)res.place=known[1];
+   }
+ }
+ return res;
+}
+function safeLoad(key,fallback){try{const d=JSON.parse(localStorage.getItem(key));return d===null?fallback:d;}catch(e){return fallback;}}
+records=safeLoad(storageKey,[]);if(!Array.isArray(records))records=[];
+const meta=safeLoad(metaKey,{});$('project').value=meta.project||'';$('technician').value=meta.technician||'';
+function saveLocal(){try{localStorage.setItem(storageKey,JSON.stringify(records));}catch(e){showToast('التخزين غير متاح في المتصفح ده');}}
+function saveMeta(){try{localStorage.setItem(metaKey,JSON.stringify({project:$('project').value,technician:$('technician').value}));}catch(e){}}
+$('project').addEventListener('input',saveMeta);$('technician').addEventListener('input',saveMeta);
+function area(w,h,q){return (Number(w)/100)*(Number(h)/100)*Number(q);}
+function validInputs(showError=false){const w=Number(f.width.value),h=Number(f.height.value),q=Number(f.qty.value);const p=f.place.value.trim();if(!p){if(showError){showToast('اكتب أو انطق المكان الأول');f.place.focus();}return false;}if(!Number.isFinite(w)||w<=0||!Number.isFinite(h)||h<=0){if(showError){showToast('لازم العرض والارتفاع يكونوا أكبر من صفر');(!w?f.width:f.height).focus();}return false;}if(!Number.isInteger(q)||q<1){if(showError){showToast('العدد لازم يكون رقم صحيح 1 أو أكبر');f.qty.focus();}return false;}return true;}
+function updatePreview(){let w=Math.max(0,Number(f.width.value)||0),h=Math.max(0,Number(f.height.value)||0),q=Math.max(0,Number(f.qty.value)||0);$('widthMeters').textContent=fmt(w/100)+' متر';$('heightMeters').textContent=fmt(h/100)+' متر';$('formula').textContent=fmt(w/100)+' × '+fmt(h/100)+' × '+q;$('result').innerHTML=fmt(area(w,h,q))+' <small>م²</small>';}
+function showToast(message){const el=$('toast');el.textContent=message;el.classList.add('show');clearTimeout(toastTimeout);toastTimeout=setTimeout(()=>el.classList.remove('show'),2800);}
+function resetForm(){editId=null;f.place.value='';f.width.value='';f.height.value='';f.qty.value='1';$('saveBtn').textContent='＋ حفظ المقاس في الجدول';$('formTitle').textContent='مقاس جديد';updatePreview();}
+for(const el of Object.values(f))el.addEventListener('input',updatePreview);
+$('resetBtn').addEventListener('click',resetForm);
+$('saveBtn').addEventListener('click',()=>{
+ if(!validInputs(true))return;
+ const entry={id:editId||('r'+Date.now()+'_'+Math.random().toString(36).slice(2,8)),place:f.place.value.trim(),widthCm:Number(f.width.value),heightCm:Number(f.height.value),qty:Number(f.qty.value),date:new Date().toISOString()};
+ if(editId){const index=records.findIndex(x=>x.id===editId);if(index>=0){entry.date=records[index].date;records[index]=entry;}else records.push(entry);}else records.push(entry);
+ const wasEditing=Boolean(editId);saveLocal();renderRecords();resetForm();showToast(wasEditing?'اتعدّل المقاس بنجاح':'اتحفظ المقاس في الجدول');
+});
+function escapeHtml(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function renderRecords(){
+ const sumArea=records.reduce((acc,r)=>acc+area(r.widthCm,r.heightCm,r.qty),0);
+ $('sumArea').textContent=fmt(sumArea);$('sumCount').textContent=records.reduce((acc,r)=>acc+Number(r.qty),0);$('sumLines').textContent=records.length;$('sumPlaces').textContent=new Set(records.map(r=>String(r.place).trim())).size;
+ $('printMeta').textContent='العميل / المشروع: '+($('project').value||'—')+' | الفني: '+($('technician').value||'—')+' | التاريخ: '+new Date().toLocaleDateString('ar-EG');
+ if(!records.length){$('recordsView').innerHTML='<div class="empty"><div class="circle">▤</div><b>لسه مفيش مقاسات محفوظة</b>ابدأ بتسجيل أول مقاس بالصوت.</div>';return;}
+ const body=records.map((r,i)=>'<tr><td>'+(i+1)+'</td><td>'+escapeHtml(r.place)+'</td><td class="num">'+fmt(r.widthCm)+'</td><td class="num">'+fmt(r.heightCm)+'</td><td class="num">'+Number(r.qty)+'</td><td class="num"><strong>'+fmt(area(r.widthCm,r.heightCm,r.qty))+'</strong></td><td><button class="act" data-action="edit" data-id="'+escapeHtml(r.id)+'">تعديل</button><button class="act remove" data-action="remove" data-id="'+escapeHtml(r.id)+'">حذف</button></td></tr>').join('');
+ $('recordsView').innerHTML='<div class="tablewrap"><table><thead><tr><th>#</th><th>المكان</th><th>العرض (سم)</th><th>الارتفاع (سم)</th><th>العدد</th><th>المساحة (م²)</th><th>إجراءات</th></tr></thead><tbody>'+body+'</tbody><tfoot><tr><td colspan="4">الإجمالي</td><td>'+records.reduce((a,r)=>a+Number(r.qty),0)+'</td><td class="num">'+fmt(sumArea)+' م²</td><td></td></tr></tfoot></table></div>';
+}
+$('recordsView').addEventListener('click',e=>{
+ const btn=e.target.closest('button[data-action]');if(!btn)return;
+ const r=records.find(x=>x.id===btn.dataset.id);if(!r)return;
+ if(btn.dataset.action==='remove'){if(!confirm('تحذف مقاس «'+r.place+'»؟'))return;records=records.filter(x=>x.id!==r.id);saveLocal();renderRecords();if(editId===r.id)resetForm();showToast('اتحذف المقاس');return;}
+ editId=r.id;f.place.value=r.place;f.width.value=r.widthCm;f.height.value=r.heightCm;f.qty.value=r.qty;$('saveBtn').textContent='✓ حفظ التعديل';$('formTitle').textContent='تعديل المقاس';updatePreview();window.scrollTo({top:0,behavior:'smooth'});f.place.focus({preventScroll:true});
+});
+$('clearAllBtn').addEventListener('click',()=>{if(!records.length){showToast('الجدول فاضي بالفعل');return;}if(!confirm('متأكد إنك عايز تحذف كل المقاسات؟ الإجراء ده مش ممكن التراجع عنه.'))return;records=[];saveLocal();renderRecords();resetForm();showToast('اتمسح الجدول');});
+function csvCell(s){return '"'+String(s??'').replace(/"/g,'""')+'"';}
+$('exportBtn').addEventListener('click',()=>{
+ if(!records.length){showToast('سجّل مقاس واحد على الأقل علشان تصدّر الملف');return;}
+ let rows=[['اسم المشروع', $('project').value||''],['اسم الفني',$('technician').value||''],['تاريخ التصدير',new Date().toLocaleDateString('ar-EG')],[],['م','المكان','العرض (سم)','الارتفاع (سم)','العدد','المساحة (م²)']];
+ records.forEach((r,i)=>rows.push([i+1,r.place,r.widthCm,r.heightCm,r.qty,rounded(area(r.widthCm,r.heightCm,r.qty))]));
+ rows.push(['','الإجمالي','','',records.reduce((a,r)=>a+Number(r.qty),0),rounded(records.reduce((a,r)=>a+area(r.widthCm,r.heightCm,r.qty),0))]);
+ const csv='\ufeff'+rows.map(row=>row.map(csvCell).join(',')).join('\r\n');const blob=new Blob([csv],{type:'text/csv;charset=utf-8;'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='مقاسات_الستائر_'+new Date().toISOString().slice(0,10)+'.csv';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),5000);showToast('اتصدّر ملف المقاسات — افتحه في Excel');
+});
+$('printBtn').addEventListener('click',()=>{renderRecords();window.print();});
+function applySpeech(raw){$('lastSpeech').textContent=raw;const p=parseVoice(raw);const labels=[];
+ if(p.place){f.place.value=p.place;labels.push('المكان');}
+ if(p.width!==undefined){f.width.value=p.width;labels.push('العرض');}
+ if(p.height!==undefined){f.height.value=p.height;labels.push('الارتفاع');}
+ if(p.qty!==undefined){f.qty.value=p.qty;labels.push('العدد');}
+ updatePreview();
+ if(labels.length){setStatus('اتملّت خانات: '+labels.join('، ')+'. راجع المقاس قبل الحفظ.','good');showToast('اتحلّل الكلام بنجاح');}
+ else{setStatus('سمعت الكلام، بس مقدرتش أستخرج منه بيانات. جرّب تقول «العرض... الارتفاع... العدد... المكان...».','bad');}
+ return p;
+}
+$('parseBtn').addEventListener('click',()=>{const raw=$('speechInput').value.trim();if(!raw){showToast('اكتب الكلام اللي عايز تحلله');return;}applySpeech(raw);});
+$('sampleBtn').addEventListener('click',()=>{applySpeech('المكان ريسبشن العرض ٢ متر ونص الارتفاع ٢ متر و٧٠ العدد ٣');});
+function setStatus(s,kind){$('statusText').textContent=s;const el=$('voiceStatus');el.classList.remove('active','good','bad');if(kind)el.classList.add(kind);}
+// Diagnostics and safe alternatives for a microphone feature that varies by browser.
+const Recognition=window.SpeechRecognition||window.webkitSpeechRecognition;
+const micButton=$('micBtn');
+const contextNote=$('contextNote');
+let starting=false;
+function contextMessage(message,kind){
+ contextNote.textContent=message;
+ contextNote.classList.add('visible');
+ contextNote.classList.toggle('good',kind==='good');
+}
+function openDictation(){
+ const pane=$('dictationDetails');pane.open=true;
+ pane.scrollIntoView({behavior:'smooth',block:'center'});
+ $('speechInput').focus();
+ setStatus('بديل من غير خدمة المتصفح: اضغط علامة الميكروفون في كيبورد الموبايل، اتكلم، وبعدها اضغط «حلّل الكلام».');
+}
+$('dictateBtn').addEventListener('click',openDictation);
+const proto=location.protocol;
+const inFrame=(()=>{try{return window.top!==window.self;}catch(e){return true;}})();
+if(inFrame){contextMessage('البرنامج مفتوح داخل معاينة/تطبيق. تسجيل الصوت ممكن يكون محظور هنا. افتح رابط الموقع مباشرة في Chrome أو Safari.');}
+else if(proto==='file:'){
+ contextMessage('أنت فاتح البرنامج كملف HTML من الجهاز. زر التسجيل ممكن ما يشتغلش بالطريقة دي حتى لو المتصفح بيدعم الصوت. علشان تضمن أفضل فرصة للتسجيل، ارفع نسخة index.html على استضافة HTTPS وافتح رابط الموقع مباشرة.');
+}else if(!window.isSecureContext){
+ contextMessage('الصفحة مش في سياق آمن. افتحها برابط يبدأ بـ https:// أو على localhost أثناء التجربة.');
+}
+$('micTestBtn').addEventListener('click',async()=>{
+ if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){
+  setStatus('المتصفح مش بيسمح بفحص الميكروفون هنا. افتح البرنامج في تبويب مباشر برابط HTTPS.','bad');return;
+ }
+ setStatus('بفحص صلاحية الميكروفون... لو ظهر طلب إذن اختار سماح.','active');
+ try{
+  const stream=await navigator.mediaDevices.getUserMedia({audio:true});
+  stream.getTracks().forEach(track=>track.stop());
+  setStatus('تمام: المتصفح قدر يفتح الميكروفون. اضغط «ابدأ التسجيل». ملحوظة: خدمة تحويل الصوت إلى نص محتاجة تكون متاحة برضه.','good');
+ }catch(e){
+  const nm=e&&e.name||'unknown';
+  const messages={
+   NotAllowedError:'الوصول للميكروفون مرفوض. افتح إعدادات الموقع في المتصفح واسمح بالميكروفون.',
+   PermissionDeniedError:'إذن الميكروفون مرفوض من المتصفح.',
+   NotFoundError:'مش لاقي ميكروفون متوصل بالجهاز.',
+   NotReadableError:'الميكروفون مستخدم في برنامج تاني أو مش قادر أفتحه.',
+   SecurityError:'السياق غير آمن. افتح من HTTPS وفي تبويب مباشر.',
+   TypeError:'الميكروفون غير متاح في طريقة فتح الصفحة دي.'
+  };
+  setStatus((messages[nm]||'تعذر فتح الميكروفون.')+' [فحص: '+nm+']','bad');
+ }
+});
+function idleButton(){
+ listening=false;starting=false;
+ micButton.classList.remove('listening');
+ $('micText').textContent='ابدأ التسجيل بالصوت';
+ micButton.setAttribute('aria-pressed','false');
+}
+if(!Recognition){
+ setStatus('ميزة تحويل الصوت إلى كلام غير مدعومة في المتصفح ده. استخدم زر «بديل: إملاء من كيبورد الموبايل» أو جرّب متصفح حديث.','bad');
+ micButton.addEventListener('click',openDictation);
+}else{
+ try{
+  recognition=new Recognition();
+  recognition.lang='ar-EG';recognition.interimResults=true;
+  recognition.continuous=false;recognition.maxAlternatives=1;
+  let finalText='',latestText='',lastError='';
+  recognition.onstart=()=>{
+   starting=false;listening=true;
+   micButton.classList.add('listening');$('micText').textContent='إيقاف التسجيل';
+   micButton.setAttribute('aria-pressed','true');
+   setStatus('الميكروفون بدأ يسمعك... قول المكان والعرض والارتفاع والعدد.','active');
+  };
+  recognition.onaudiostart=()=>{
+   if(!lastError)setStatus('الميكروفون متصل، اتكلم دلوقتي.','active');
+  };
+  recognition.onresult=ev=>{
+   let all='',confirmed='';
+   for(let i=0;i<ev.results.length;i++){
+    const t=ev.results[i][0].transcript;
+    all+=t+' ';
+    if(ev.results[i].isFinal)confirmed+=t+' ';
+   }
+   latestText=all.trim();finalText=confirmed.trim();
+   if(latestText)$('lastSpeech').textContent=latestText;
+  };
+  recognition.onerror=ev=>{
+   lastError=ev.error||'unknown';
+   const messages={
+    'not-allowed':'إذن الميكروفون مرفوض. من رمز القفل جنب رابط الموقع، اسمح باستخدام الميكروفون ثم جرّب.',
+    'service-not-allowed':'المتصفح منع خدمة تحويل الصوت إلى نص. جرّب Chrome/Safari من موقع HTTPS.',
+    'no-speech':'التسجيل بدأ لكن ما اتسمعش كلام. قرّب من الميكروفون وحاول تاني.',
+    'audio-capture':'المتصفح مش قادر يستخدم الميكروفون. اضغط «اختبر صلاحية الميكروفون».',
+    'network':'الميكروفون ممكن يكون شغال، لكن خدمة تحويل الصوت لكلام فشلت بسبب الشبكة أو خدمة المتصفح. جرّب اتصال مختلف أو استخدم إملاء الكيبورد.',
+    'language-not-supported':'المتصفح ما قدرش يشغّل التعرف على العربية. جرّب متصفح تاني أو إملاء الكيبورد.',
+    'aborted':'اتوقف التسجيل.'
+   };
+   setStatus((messages[lastError]||'حصلت مشكلة في خدمة الصوت.')+' [السبب: '+lastError+']','bad');
+  };
+  recognition.onend=()=>{
+   const phrase=(finalText||latestText).trim();
+   idleButton();
+   if(phrase && !lastError){applySpeech(phrase);}
+   else if(phrase && lastError==='no-speech'){applySpeech(phrase);}
+   else if(!lastError)setStatus('انتهى التسجيل من غير نص. جرّب الكلام مرة تانية أو استخدم إملاء الكيبورد.','bad');
+  };
+  micButton.addEventListener('click',()=>{
+   if(listening){try{recognition.stop();}catch(e){idleButton();}return;}
+   if(starting)return;
+   finalText='';latestText='';lastError='';starting=true;
+   setStatus('ببدأ التعرف على الصوت... لو المتصفح سأل عن صلاحية الميكروفون، اختار «سماح».','active');
+   try{recognition.start();}
+   catch(e){
+    idleButton();
+    setStatus('مش قادر أبدأ التسجيل ('+(e.name||'error')+'). جرّب فحص الميكروفون أو افتح النسخة من موقع HTTPS.','bad');
+   }
+  });
+ }catch(e){
+  setStatus('المتصفح مش قادر يشغّل تحويل الصوت هنا. استخدم «بديل: إملاء من كيبورد الموبايل».','bad');
+  micButton.addEventListener('click',openDictation);
+ }
+}
+renderRecords();updatePreview();
+// Expose pure parsing functions for quick QA, not used by normal interface.
+window.CurtainMeasureParser={parseVoice,parseDimension,parseCount,normalize};
+})();
+</script>
+</body>
+</html>
